@@ -1,0 +1,853 @@
+/* Reset simples - limpa estilos padrão dos navegadores */ 
+* { 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+}
+
+html,body { 
+  height: 100%;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; /* fonte base */
+  color: #222222; /* cor padrão do texto */
+  background: #ffffff; /* cor de fundo padrão */
+}
+/* FIM Reset simples */
+
+/* Variáveis simples */
+:root{
+  --primary: #007bff; /* cor principal (azul) */
+  --muted: #6b7280; /* cor de texto secundário */
+  --bg: #f8fafc; /* fundo cinza-claro */
+  --card-bg: #ffffff; /* fundo branco dos cards */
+  --radius: 12px; /* raio de bordas padrão */
+  --container: 1100px; /* largura máxima do container */
+}
+/* FIM Variáveis */
+
+/* Container */
+.container{
+  width: 95%; /* largura fluida */
+  max-width: var(--container); /* largura máxima */
+  margin: 0 auto; /* centraliza conteúdo */
+}
+/* FIM Container */
+
+/* HEADER */
+.site-header{
+  background: #ffffff; /* fundo branco do cabeçalho */
+  border-bottom: 1px solid #eeeeee; /* linha inferior sutil */
+  position: sticky; /* fixa no topo ao rolar */
+  top: 0; /* posição superior */
+  z-index: 40; /* garante que fique sobre outros elementos */
+}
+
+.header-inner{ 
+  display:flex; /* layout em linha */
+  align-items:center; /* centraliza verticalmente */
+  justify-content:space-between; /* espaça logo e menu */
+  padding:1px 0; 
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px; /* espaçamento entre ícone e texto */
+  text-decoration:none;
+  color:inherit;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+.logo img{ 
+  border-radius:40%; /* deixa o logo circular */
+}
+
+.org-name{
+  font-weight:600;
+  font-size:16.8px;
+}
+/* FIM HEADER */
+
+/* Nav */
+.main-nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:var(--muted); /* cor de link padrão */
+  font-weight:500;
+  font-size:15.2px;
+}
+
+.main-nav a:hover{
+  color:var(--primary); /* muda cor ao passar o mouse */
+}
+/* FIM Nav */
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:700px; /* altura da seção hero */
+  background-image: url("assets/hero.jpg"); /* imagem de fundo */
+  background-size:cover; /* cobre toda a área */
+  background-position:center; /* centraliza imagem */
+  display:flex;
+  align-items:center;
+  color:#ffffff; /* texto branco */
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0; /* cobre toda a seção */
+  background:linear-gradient(180deg, #00000059, #00000073); /* sobreposição com gradiente escuro */
+}
+
+.hero-content{
+  position:relative;
+  z-index:2; /* fica acima do overlay */
+  padding:60px 0;
+  text-align:center; /* centraliza o texto */
+  width:100%;
+}
+
+.hero h1{
+  font-size:58px; 
+  line-height:1.02;
+  font-weight:800;
+  margin-bottom:12px;
+  text-shadow: 0 4px 18px #0000004d; /* sombra para destacar o texto sobre imagem */
+}
+
+.lead{
+  font-size:16.8px; 
+  margin-bottom:18px;
+  opacity:0.95; /* leve transparência para suavizar o texto */
+}
+/* FIM HERO */
+
+/* Buttons */
+.btn-primary{
+  display:inline-block;
+  background:var(--primary);
+  color:#ffffff;
+  padding:12px 26px;
+  border-radius:10px; /* cantos arredondados */
+  text-decoration:none;
+  font-weight:700;
+  box-shadow: 0 6px 18px #007bff2e; /* sombra azul suave */
+  transition: transform 0.3s ease; /* suaviza movimento do hover */
+}
+/* FIM Buttons */
+
+.btn-primary:hover{ 
+  transform:translateY(-2px); /* leve elevação ao passar o mouse */
+}
+
+/* SECTIONS */
+.section{
+  padding:64px 0;
+  background: #ffffff;
+}
+
+.section-title{
+  font-size:32px;
+  text-align:center;
+  margin-bottom:8px;
+  font-weight:800;
+}
+
+.section-sub{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:28px;
+}
+/* FIM SECTIONS */
+
+/* ABOUT */
+.about{
+  padding:56px 0;
+  background:var(--bg);
+  width: 100vw; /* ocupa 100% da largura da viewport */
+  position: relative;
+  left: 50%; /* reposiciona para compensar o uso de vw */
+  right: 50%;  
+  margin-left: -50vw; /* centraliza a seção expandida */
+  margin-right: -50vw;
+}
+
+.about-inner{
+  display:grid;
+  grid-template-columns: 1fr 420px; /* define duas colunas */
+  gap:36px; /* espaçamento entre texto e imagem */
+  align-items:center;
+}
+
+.about-text h2{
+  font-size:35.2px;
+  margin-bottom:12px;
+  font-weight:800; 
+}
+
+.about-text p{ 
+  color:var(--muted);
+  line-height:25.6px; 
+  margin-bottom:12px; 
+}
+
+.about-media img{
+  width:100%;
+  border-radius:14px; /* bordas arredondadas na imagem */
+  box-shadow: 0 10px 30px #0206170f; /* sombra sutil na imagem */
+}
+
+.container-about {
+  width: 90%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+/* FIM ABOUT */
+
+/* CARDS GRID */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(2,1fr); /* duas colunas */
+  gap:26px;
+  margin-top:28px;
+}
+
+.card{
+  background:#c7edff;
+  padding:26px;
+  border-radius:14px;
+  box-shadow: 0 6px 18px #0f172a0a; /* sombra de leve destaque */
+  border:1px solid #f0f2f4; /* borda suave */
+}
+
+.card-icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#eef7ff; /* ícone em fundo azul claro */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  margin-bottom:12px; 
+}
+
+.card h4{ 
+  margin-bottom:8px;
+  font-weight:700;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:25.6px;
+  margin-bottom:14px;
+}
+
+.card-link{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:600; 
+}
+/* FIM CARDS GRID */
+
+/* HOW HELP */
+.how-help{ 
+  background:var(--bg); 
+  padding-bottom:80px; /* espaçamento inferior extra */
+}
+
+.help-grid{ 
+  display:grid; 
+  grid-template-columns:repeat(3,1fr); /* 3 colunas de cards */
+  gap:22px; 
+  margin-top:28px; 
+}
+
+.help-card{ 
+  background:#c7edff;
+  padding:22px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid #f3f5f7;
+  box-shadow:0 6px 18px #02061708; /* sombra leve para destaque */
+}
+
+.help-icon{ 
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  margin:0 auto 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eef7ff;
+  font-size:20px;
+}
+
+.btn-ghost{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:var(--primary);
+  color:#ffffff;
+  text-decoration:none;
+  font-weight:700; 
+}
+/* FIM HOW HELP */
+
+/* GALERIA FOTO */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px #0f172a0a;
+  object-fit: cover;
+}
+
+/* CONTACT */
+.contact-form{ 
+  max-width:680px; /* largura máxima do formulário */
+  margin:24px auto 18px;
+  display:flex;
+  flex-direction:column; /* empilha campos verticalmente */
+  gap:12px; /* espaçamento entre campos */
+  padding-bottom:80px;
+}
+
+.contact-form input, 
+.contact-form textarea{
+  padding:14px 16px;
+  border-radius:10px;
+  border:1px solid #e8ecef;
+  outline:none;
+  font-size:16px;
+  font-family: 'Inter', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  box-shadow:0 6px 18px #007bff14; /* sombra azul ao focar */
+  border-color:#007bff59; /* muda a cor da borda ao focar */
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  font-family: 'Inter', sans-serif;
+  font-size: 15.2px; 
+  opacity: 1; /* garante visibilidade total */
+}
+
+.btn-primary.full{
+  width:100%;
+  display:inline-block;
+  text-align:center;
+  border-radius:12px;
+  padding:12px;
+  border: 0px solid #007bff; /* remove borda preta */
+}
+
+.line{
+  width: 100%;
+  color:#eeeeee;
+  padding-bottom:80px;
+}
+/* FIM CONTACT */
+
+/* CONTACT INFO */
+.contact-info{ 
+  text-align:center;
+  color:var(--muted);
+  margin-top:38px;
+  display:flex;
+  justify-content:center;
+  gap:26px; /* espaçamento entre ícones de contato */
+}
+
+.contact-icon{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#eef7ff; /* fundo claro do ícone */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px; 
+}
+/* FIM CONTACT INFO */
+
+/* ======== SEÇÃO IMPACTO ======== */
+.impact {
+  text-align: center;
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+.impact-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.impact-item {
+  text-align: center;
+  flex: 1 1 250px;
+  max-width: 280px;
+}
+
+.impact-item img {
+  margin-bottom: 16px;
+  width: 90px;
+  height: auto;
+}
+
+/* Estilo dos números principais */
+.impact-number {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+/* Cores específicas por bloco */
+.number-1 { color: #0e9be7; } /* Azul claro */
+.number-2 { color: #0e6ca7; } /* Azul médio */
+.number-3 { color: #0a5280; } /* Azul escuro */
+
+.impact-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #083a50;
+  line-height: 1.4;
+}
+/* ======== FIM SEÇÃO IMPACTO ======== */
+
+/* ======== GALERIA DE FOTOS ======== */
+.gallery {
+  padding: 60px 0;
+  background: #f8fafc;
+}
+
+.gallery img {
+  width: 100%;
+  height: 500px;            /* altura reduzida — menos “esticada” */
+  max-width: 800px;         /* limita a largura máxima do carrossel */
+  object-fit: cover;        /* mantém proporção, cortando o excesso */
+  border-radius: 18px;
+  margin: 0 auto;           /*  centraliza a imagem dentro do container */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Centraliza o carrossel */
+.carousel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Controles (setas) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  width: 40px;
+  height: 40px;
+}
+
+/* Indicadores (pontinhos) */
+.carousel-indicators [data-bs-target] {
+  background-color: #007bff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+/* ======== FIM GALERIA DE FOTOS ======== */
+
+/* Indicadores (pontinhos) */
+.carousel-indicators [data-bs-target] {
+  background-color: #007bff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* ======== FORMULÁRIO DE CONTATO ======== */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #052b42;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #097ebd;
+  outline: none;
+  box-shadow: 0 0 5px rgba(9,126,189,0.4);
+}
+
+.contact-form .btn-primary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  background-color: #097ebd;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+  background-color: #007bff;
+}
+/* ======== FIM FORMULÁRIO DE CONTATO ======== */
+
+/* FOOTER */
+.site-footer{
+  border-top:1px solid #eeeeee; 
+  padding:18px 0; 
+  margin-top:40px; 
+  background:#f7f8fa;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between; /* distribui elementos */
+  align-items:center;
+}
+/* FIM FOOTER */
+
+/* Accessibility helpers */
+.sr-only{ 
+  position:absolute !important;
+  height:1px;
+  width:1px;
+  overflow:hidden;
+  clip:rect(1px,1px,1px,1px);
+  white-space:nowrap; /* oculta elemento da tela mas mantém acessível */
+}
+/* FIM Accessibility helpers */
+
+/* =================== RESPONSIVIDADE =================== */
+
+/* === Tablets médios e menores (até 992px) === */
+@media (max-width: 992px) {
+
+  /* HEADER */
+  .header-inner {
+    flex-direction: column; /* empilha logo e menu */
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .main-nav a {
+    margin-left: 0;
+    display: inline-block;
+    margin: 6px 10px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 500px; /* altura menor em telas médias */
+    background-position: center;
+  }
+
+  .hero h1 {
+    font-size: 40px; /* reduz tamanho do título */
+  }
+
+  .lead {
+    font-size: 15px;
+  }
+
+  /* ABOUT */
+  .about-inner {
+    grid-template-columns: 1fr; /* texto e imagem empilhados */
+    gap: 20px;
+    text-align: center;
+  }
+
+  .about-media img {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    grid-template-columns: 1fr 1fr; /* duas colunas */
+    gap: 20px;
+  }
+
+  /* HOW HELP */
+  .help-grid {
+    grid-template-columns: 1fr 1fr; /* duas colunas */
+  }
+
+  /* IMPACTO */
+  .impact-grid {
+    gap: 40px;
+  }
+
+  .impact-item img {
+    width: 70px;
+  }
+
+  .impact-number {
+    font-size: 36px;
+  }
+
+  /* GALERIA */
+  .gallery img {
+    height: 350px; /* ajusta proporção */
+  }
+
+  /* CONTATO */
+  .contact-form {
+    max-width: 90%;
+    padding: 40px 0;
+  }
+}
+
+/* === Mobile (até 768px) === */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .site-header {
+    position: relative;
+  }
+
+  .main-nav {
+    display: none; /* menu escondido (pode virar hambúrguer depois) */
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 400px;
+    padding: 40px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .lead {
+    font-size: 14px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 40px 0;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    grid-template-columns: 1fr; /* uma coluna */
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  /* HOW HELP */
+  .help-grid {
+    grid-template-columns: 1fr; /* uma coluna */
+  }
+
+  .help-card {
+    padding: 18px;
+  }
+
+  /* IMPACTO */
+  .impact {
+    padding: 40px 0;
+  }
+
+  .impact-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .impact-item {
+    max-width: 260px;
+  }
+
+  .impact-number {
+    font-size: 30px;
+  }
+
+  .impact-text {
+    font-size: 15px;
+  }
+
+  /* GALERIA */
+  .gallery {
+    padding: 40px 0;
+  }
+
+  .gallery img {
+    height: 250px;
+  }
+
+  /* FORMULÁRIO DE CONTATO */
+  .contact-form {
+    padding: 20px 0;
+    width: 90%;
+  }
+
+  .contact-form label {
+    font-size: 14px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+
+  .contact-form .btn-primary {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* FOOTER */
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* === Extra Small (até 480px) === */
+@media (max-width: 480px) {
+
+  /* GERAL */
+  body {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 360px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .lead {
+    font-size: 13px;
+  }
+
+  /* ABOUT */
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+
+  /* CARDS */
+  .card {
+    padding: 18px;
+  }
+
+  /* IMPACTO */
+  .impact-number {
+    font-size: 26px;
+  }
+
+  .impact-text {
+    font-size: 14px;
+  }
+
+  /* GALERIA */
+  .gallery img {
+    height: 220px;
+  }
+
+  /* CONTATO */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form .btn-primary {
+    font-size: 15px;
+  }
+}
+
+/* === Telas grandes (acima de 1200px) === */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px; /* mais espaço lateral */
+  }
+
+  .hero h1 {
+    font-size: 64px; /* título maior em desktop */
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .about-inner {
+    gap: 48px;
+  }
+
+  .impact-grid {
+    gap: 100px;
+  }
+}
+/* =================== FIM RESPONSIVIDADE =================== */

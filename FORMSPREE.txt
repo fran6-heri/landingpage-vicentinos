@@ -1,0 +1,24 @@
+eceber as mensagens (Formspree)
+
+Você pode usar um serviço gratuito chamado Formspree.io
+.
+Ele permite receber as mensagens do formulário diretamente no seu e-mail sem precisar programar backend.
+
+Vá em https://formspree.io
+
+Clique em “Get Started”
+
+Cadastre seu e-mail
+
+Ele vai te dar um Form ID, tipo:
+
+https://formspree.io/f/mayvzjdz
+
+
+Copie e substitua no HTML:
+
+<form action="https://formspree.io/f/mayvzjdz" method="POST">
+
+
+Pronto 🎉
+Agora o formulário vai enviar as mensagens para o seu e-mail!

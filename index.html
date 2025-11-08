@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vicentinos — Transformando Vidas</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".impact-number");
+  const speed = 200; // ajuste de velocidade (quanto maior, mais lento)
+
+  const runCounter = (counter) => {
+    const target = +counter.getAttribute("data-target");
+    const updateCount = () => {
+      const count = +counter.innerText;
+      const increment = Math.ceil(target / speed);
+
+      if (count < target) {
+        counter.innerText = Math.min(count + increment, target);
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target.toLocaleString("pt-BR");
+      }
+    };
+    updateCount();
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(counter => runCounter(counter));
+        observer.disconnect(); // impede que rode mais de uma vez
+      }
+    });
+  });
+
+  const impactoSection = document.querySelector("#impacto");
+  if (impactoSection) observer.observe(impactoSection);
+});
+</script>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="Vicentinos logo" width="171px" height="78px">
+      </a>
+      <nav class="main-nav" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#como-ajudar">Como Ajudar</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" role="region" aria-label="Apresentação principal">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1>Transformando vidas com solidariedade e fé</h1>
+        <p class="lead">Conheça a missão dos Vicentinos em Valinhos/SP e faça parte dessa corrente do bem.</p>
+        <a class="btn-primary" href="#como-ajudar">Quero Ajudar</a>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container-about">
+        <div class="about-inner">
+          <div class="about-text">
+            <h2>Sobre Nós</h2>
+            <p>A Sociedade de São Vicente de Paulo é uma organização dedicada ao serviço aos mais necessitados, promovendo dignidade através da solidariedade cristã. Atuamos com ações de assistência, apoio educacional e programas de inclusão social.</p>
+            <h3><strong>Missão</strong></h3>
+            <p>Servir aos pobres com amor, respeito e justiça.</p>
+            <h3><strong>Visão</strong></h3>
+            <p>Ser reconhecida como uma rede de solidariedade com impacto real na comunidade.</p>
+            <h3><strong>Valores</strong></h3>
+            <p>Fé, solidariedade, empatia, respeito e compromisso com a justiça social.</p>
+          </div>
+          <div class="about-media" aria-hidden="false">
+            <img src="assets/about.jpg" alt="Voluntários em ação">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section container">
+      <h2 class="section-title">Projetos e Ações</h2>
+      <p class="section-sub">Conheça as principais iniciativas que transformam vidas.</p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-icon"><img src="assets/assistencia.png" alt="assistencia icon" width="25px" height="25px"></div>
+          <h4>Assistência a Famílias</h4>
+          <p>Apoio emergencial com cestas básicas, roupas e itens de higiene para famílias em vulnerabilidade.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"><img src="assets/distribuicao.png" alt="distribuicao icon" width="25px" height="25px"></div>
+          <h4>Distribuição de Alimentos</h4>
+          <p>Campanhas de distribuição e refeições quentes para pessoas em situação de rua.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"><img src="assets/educacional.png" alt="educacional icon" width="25px" height="25px"></div>
+          <h4>Apoio Educacional</h4>
+          <p>Bolsas, material escolar e reforço para crianças e jovens.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon"><img src="assets/moradia.png" alt="moradia icon" width="25px" height="25px"></div>
+          <h4>Moradia Digna</h4>
+          <p>Reformas e melhorias em habitações, garantindo condições mínimas de dignidade.</p>
+        </article>
+      </div>
+      <div style="text-align: center; margin-top: 30px;">
+  <a class="btn-primary" href="https://www.ssvpbrasil.org.br/" target="_blank">Saiba mais sobre os Vicentinos</a>
+      </div>
+    </section>
+
+<!-- NOSSO IMPACTO -->
+<section id="impacto" class="section impact">
+  <h2 class="section-title">NOSSO IMPACTO</h2>
+
+  <div class="impact-grid">
+    <div class="impact-item">
+      <img src="assets/icone-criancas.png" alt="Crianças atendidas" width="100">
+      <h3 class="impact-number number-1" data-target="100">0</h3>
+      <p class="impact-text">Jovens e Crianças Atendidos<br>Mensalmente</p>
+    </div>
+
+    <div class="impact-item">
+      <img src="assets/icone-refeicoes.png" alt="Refeições Servidas" width="100">
+      <h3 class="impact-number number-2" data-target="300">0</h3>
+      <p class="impact-text">Refeições Servidas</p>
+    </div>
+
+    <div class="impact-item">
+      <img src="assets/icone-moveis.png" alt="Doação de Móveis" width="100">
+      <h3 class="impact-number number-3" data-target="350">0</h3>
+      <p class="impact-text">Doação de Móveis</p>
+    </div>
+  </div>
+</section>
+
+    <section id="como-ajudar" class="section how-help ">
+      <div class="container">
+        <h2 class="section-title">Como Ajudar ?</h2>
+        <p class="section-sub">Existem diversas formas de contribuir com nossa missão. Escolha a que mais combina com você.</p>
+
+        <div class="help-grid">
+          <div class="help-card">
+            <div class="help-icon"><img src="assets/doacao.png" alt="doacao icon" width="30px" height="30px"></div>
+            <h4><strong>Fazer Doação</strong></h4>
+            <p>Sua contribuição financeira nos ajuda a manter projetos e ampliar o alcance da solidariedade.</p>
+            <a class="btn-ghost" href="https://wa.me/5519989134027?text=Olá,%20quero%20fazer%20uma%20doação%20para%20os%20Vicentinos!" target="_blank">Doar Agora</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon"><img src="assets/voluntario.png" alt="voluntario icon" width="30px" height="30px"></div>
+            <h4><strong>Ser Voluntário</strong></h4>
+            <p>Doe seu tempo e talento — voluntários são o coração da nossa missão.</p>
+            <a class="btn-ghost" href="https://wa.me/5519989134027?text=Olá,%20quero%20ser%20voluntário%20nos%20Vicentinos!" target="_blank">Quero Ser Voluntário</a>
+          </div>
+
+          <div class="help-card">
+            <div class="help-icon"><img src="assets/apoio.png" alt="apoio icon" width="30px" height="30px"></div>
+            <h4><strong>Apoiar Projeto</strong></h4>
+            <p>Adote um de nossos projetos e acompanhe o impacto da sua contribuição.</p>
+            <a class="btn-ghost" href="https://wa.me/5519989134027?text=Olá,%20gostaria%20de%20conhecer%20melhor%20os%20projetos%20dos%20Vicentinos!" target="_blank">Conhecer Projetos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- GALERIA DE FOTOS -->
+<section id="galeria" class="section gallery bg-light py-5">
+  <div class="container text-center">
+    <h2 class="section-title mb-2">Galeria de Fotos</h2>
+    <p class="section-sub mb-4">Momentos que refletem o amor e o impacto das nossas ações.</p>
+
+    <div id="carouselGaleria" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="valinhos/foto 1.jpg" class="d-block w-100 rounded shadow" alt="Foto 1">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 2.jpg" class="d-block w-100 rounded shadow" alt="Foto 2">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 3.jpg" class="d-block w-100 rounded shadow" alt="Foto 3">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 4.jpg" class="d-block w-100 rounded shadow" alt="Foto 4">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 5.jpg" class="d-block w-100 rounded shadow" alt="Foto 5">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 6.jpg" class="d-block w-100 rounded shadow" alt="Foto 6">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 7.jpg" class="d-block w-100 rounded shadow" alt="Foto 7">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 8.jpg" class="d-block w-100 rounded shadow" alt="Foto 8">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 9.jpg" class="d-block w-100 rounded shadow" alt="Foto 9">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 10.jpg" class="d-block w-100 rounded shadow" alt="Foto 10">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 11.jpg" class="d-block w-100 rounded shadow" alt="Foto 11">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 12.jpg" class="d-block w-100 rounded shadow" alt="Foto 12">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 13.jpg" class="d-block w-100 rounded shadow" alt="Foto 13">
+        </div>
+
+        <div class="carousel-item">
+          <img src="valinhos/foto 14.jpg" class="d-block w-100 rounded shadow" alt="Foto 14">
+        </div>
+
+      </div>
+
+      <!-- CONTROLES -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+      <!-- FIM CONTROLES -->
+    </div>
+  </div>
+</section>
+  <!-- FIM GALERIA DE FOTOS -->
+
+
+<!-- CONTATO -->
+<section id="contato" class="section contato">
+  <div class="container text-center">
+    <h2 class="section-title">Entre em Contato</h2>
+    <p class="section-sub mb-4">Tem dúvidas, sugestões ou quer ajudar ? Envie sua mensagem!</p>
+
+    <form
+  action="https://formspree.io/f/xjkpppwp" method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Enviar Mensagem</button>
+    </form>
+
+    <div class="mt-4">
+      <p>Ou se preferir, fale conosco pelo WhatsApp:</p>
+      <a class="btn-ghost" href="https://wa.me/5519989134027?text=Olá,%20gostaria%20de%20entrar%20em%20contato%20com%20os%20Vicentinos!" target="_blank">
+        Conversar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FIM CONTATO -->
+
+</main>
+
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="left">
+        <img src="assets/logo.png" alt="Vicentinos logo" width="171" height="78">
+      </div>
+      <div class="center">
+        <small>© 2025 Sociedade São Vicente de Paulo.<br>Todos os direitos reservados.</small>
+      </div>
+      <div class="right">
+        <small>Desenvolvido por Forza Web</small>
+      </div>
+    </div>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
